@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<title>koglesby-chat-app</title>
 <html>
 
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>KoglesbyChat</title>
   </head>
 
-  <body>
-    <p>Welcome to the Chat App!</p>
+  <body class="chat">
 
-    <ol id="messages">
+    <div class="chat__sidebar">
+      <h3>Chatters</h3>
+      <div id="users"></div>
+    </div>
 
-    </ol>
+    <div class="chat__main">
+      <ol id="messages" class="chat__messages"></ol>
 
-    <form id="message-form">
-      <input name="message" type="text" placeholder="write something..." />
-      <button>Send</button>
-    </form>
-    <button id="send-location">Send Location</button>
+      <div class="chat__footer">
+        <form id="message-form">
+          <input name="message" type="text" placeholder="write something..." autofocus autocomplete="off" />
+          <button>Send</button>
+        </form>
+        <button id="send-location">Send Location</button>
+      </div>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/libs/jquery-3.3.1.min.js"></script>
