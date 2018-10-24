@@ -1,11 +1,3 @@
-[
-  {
-    id: 'jsdakjka',
-    name: 'kev',
-    room: 'doogle plans'
-  }
-];
-
 // addUser(id, name, room)
 
 // removeUser(id);

@@ -19,7 +19,7 @@ const rooms = new Rooms();
 app.use(express.static(publicPath));
 
 io.on('connection', socket => {
-  console.log('new user connected');
+  // console.log('new user connected');
   socket.emit('loadRooms', rooms.getRooms());
 
   socket.on('join', (params, callback) => {
@@ -37,12 +37,17 @@ io.on('connection', socket => {
     }
 
     socket.join(room);
-    users.removeUser(socket.id);
+
     // remove user from previous rooms before adding user to a new room
+    users.removeUser(socket.id);
     users.addUser(socket.id, params.name, room);
 
-    if (!rooms.getRooms().includes(room)) {
+    if (
+      rooms.getRooms().filter(roomObj => roomObj.name === room).length === 0
+    ) {
       rooms.addRoom(room);
+    } else {
+      rooms.incrementUserCount(room);
     }
 
     io.to(room).emit('updateUserList', users.getUserList(room));
@@ -85,6 +90,7 @@ io.on('connection', socket => {
     const removedUser = users.removeUser(socket.id);
 
     if (removedUser) {
+      rooms.decrementUserCount(removedUser.room);
       io.to(removedUser.room).emit(
         'updateUserList',
         users.getUserList(removedUser.room)
