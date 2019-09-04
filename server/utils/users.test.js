@@ -32,7 +32,7 @@ describe('Users', function () {
       name: 'Kev',
       room: 'Doogles'
     };
-    users.addUser(user.id, user.name, user.room);
+    const resUser = users.addUser(user.id, user.name, user.room);
 
     expect(users.users).toMatchObject([user]);
   });
