@@ -31,6 +31,8 @@ socket.on('connect', function() {
     } else {
       console.log('No error');
     }
+    const title = params.room_select || params.room_input;
+    jQuery('#room-title').text(title);
   });
 });
 
