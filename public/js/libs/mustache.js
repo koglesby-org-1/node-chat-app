@@ -2,9 +2,8 @@
  * mustache.js - Logic-less {{mustache}} templates with JavaScript
  * http://github.com/janl/mustache.js
  */
-
+/* eslint-disable */
 /*global define: false Mustache: true*/
-
 (function defineMustache(global, factory) {
   if (
     typeof exports === 'object' &&
