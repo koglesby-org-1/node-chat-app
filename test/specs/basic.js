@@ -1,9 +1,9 @@
-const assert = require('assert')
+const assert = require('assert');
 
 describe('Home page', () => {
-  before(() => {
-    require('./../../server/server.js');
-  })
+  // before(() => {
+  //   require('./../../server/server.js');
+  // })
   // it('should have the right title', () => {
   //   browser.url('https://webdriver.io')
   //   const title = browser.getTitle()
